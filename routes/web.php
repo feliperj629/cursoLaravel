@@ -18,10 +18,13 @@ Route::get('/', function () {
 
 Route::get('/contato/{id?}', ['uses'=>'ContatoControler@index']);
 
-
 Route::post('/contato', ['uses'=>'ContatoControler@criar']);
 
 Route::put('/contato', ['uses'=>'ContatoControler@editar']);
-Auth::routes();
 
-Route::get('/home', 'HomeController@index');
+Route::get('/admin/cursos', ['as'=>'admin.cursos', 'uses'=>'Admin\CursoController@index']);
+Route::get('/admin/cursos/adicionar', ['as'=>'admin.adicionar', 'uses'=>'Admin\CursoController@adicionar']);
+Route::get('/admin/cursos/salvar', ['as'=>'admin.salvar', 'uses'=>'Admin\CursoController@salvar']);
+Route::get('/admin/cursos/editar/{id}', ['as'=>'admin.editar', 'uses'=>'Admin\CursoController@editar']);
+Route::put('/admin/cursos/atualizar/{id}', ['as'=>'admin.atualizar', 'uses'=>'Admin\CursoController@atualizar']);
+Route::get('/admin/cursos/deletar/{id}', ['as'=>'admin.deletar', 'uses'=>'Admin\CursoController@deletar']);
